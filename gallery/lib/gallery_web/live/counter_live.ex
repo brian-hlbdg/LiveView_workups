@@ -14,13 +14,14 @@ defmodule GalleryWeb.CounterLive do
     <button phx-click="decr">-</button>
     """
   end
+
   def handle_event("incr", _event, socket) do
-      socket = update(socket, :counter, &(&1 + 1))
-      {:noreply, socket}
-  end
-  def handle_event("decr", _event, socket) do
-      socket = update(socket, :counter, &(&1 - 1))
-      {:noreply, socket}
+    socket = update(socket, :counter, &(&1 + 1))
+    {:noreply, socket}
   end
 
+  def handle_event("decr", _event, socket) do
+    socket = update(socket, :counter, &(&1 - 1))
+    {:noreply, socket}
+  end
 end

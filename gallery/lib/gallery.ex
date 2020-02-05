@@ -26,23 +26,23 @@ defmodule Gallery do
     List.first(ids)
   end
 
-  def prev_image_id(ids\\@ids, id) do
+  def prev_image_id(ids \\ @ids, id) do
     Enum.at(ids, prev_index(ids, id))
   end
 
   def prev_index(ids, id) do
     ids
-    |> Enum.find_index(& &1 == id)
+    |> Enum.find_index(&(&1 == id))
     |> Kernel.-(1)
   end
 
-  def next_image_id(ids\\@ids, id) do
+  def next_image_id(ids \\ @ids, id) do
     Enum.at(ids, next_index(ids, id), first_id(ids))
   end
 
   def next_index(ids, id) do
     ids
-    |> Enum.find_index(& &1 == id)
+    |> Enum.find_index(&(&1 == id))
     |> Kernel.+(1)
   end
 
@@ -52,5 +52,4 @@ defmodule Gallery do
     |> Map.put(:query, URI.encode_query(params))
     |> URI.to_string()
   end
-
 end

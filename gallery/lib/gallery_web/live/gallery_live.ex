@@ -3,9 +3,10 @@ defmodule GalleryWeb.GalleryLive do
 
   def mount(_session, socket) do
     socket =
-    socket
-    |> assign(:current_id, Gallery.first_id())
-    |> assign(:slideshow, :stopped)
+      socket
+      |> assign(:current_id, Gallery.first_id())
+      |> assign(:slideshow, :stopped)
+
     {:ok, socket}
   end
 
@@ -72,5 +73,4 @@ defmodule GalleryWeb.GalleryLive do
       "thumb-unselected"
     end
   end
-
 end
